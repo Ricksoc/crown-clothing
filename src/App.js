@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./routes/Home/Home";
 import Navigation from "./routes/Navigation/Navigation";
+import SignIn from "./routes/SignIn/SignIn";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             </div>
           }
         />
+        <Route path="sign-in" element={<SignIn />} />
       </Route>
     </Routes>
   );
