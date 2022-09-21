@@ -6,18 +6,21 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/Users";
+
 import FormInput from "../FormInput/FormInput";
 import Button from "../Button/Button";
 
+const defaultFormFields = {
+  email: "",
+  password: "",
+};
 const SignInForm = () => {
-  const defaultFormFields = {
-    email: "",
-    password: "",
-  };
-
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -34,8 +37,8 @@ const SignInForm = () => {
 
     try {
       const { user } = await signInUserWithEmailAndPassword(email, password);
-      console.log(user);
       resetFormFields();
+      setCurrentUser(user);
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
