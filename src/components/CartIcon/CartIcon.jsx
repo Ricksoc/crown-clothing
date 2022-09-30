@@ -7,7 +7,11 @@ import { ReactComponent as BagIcon } from "../../assets/shopping-bag.svg";
 import "./CartIcon.scss";
 
 const CartIcon = () => {
-  const { setCartDropdown } = useContext(CartContext);
+  const { cartItems, setCartDropdown } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 
   return (
     <div
@@ -19,7 +23,7 @@ const CartIcon = () => {
       }
     >
       <BagIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{totalItems}</span>
     </div>
   );
 };
