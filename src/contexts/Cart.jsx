@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   useEffect(() => {
-    const totalValue = cartItems.reduceRight(
+    const totalValue = cartItems.reduce(
       (acc, item) => acc + item.quantity * item.price,
       0
     );
