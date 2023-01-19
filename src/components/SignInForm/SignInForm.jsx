@@ -1,4 +1,4 @@
-import "./SignInForm.scss";
+import { SignUpContainer, ButtonsContainer } from "./SignInForm.styles";
 
 import {
   signInWithGooglePopup,
@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 
 import FormInput from "../FormInput/FormInput";
-import Button from "../Button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 
 const defaultFormFields = {
   email: "",
@@ -53,7 +53,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -77,7 +77,7 @@ const SignInForm = () => {
             onChange: handleChange,
           }}
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button
             inputProps={{
               type: "submit",
@@ -86,14 +86,14 @@ const SignInForm = () => {
             Submit
           </Button>
           <Button
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             inputProps={{ type: "button", onClick: logGoogleUser }}
           >
             Google Sign In
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
