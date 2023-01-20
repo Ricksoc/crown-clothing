@@ -13,10 +13,11 @@ export const CheckoutItemContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
-`;
-export const CheckoutImage = styled.img`
-  width: 100%;
-  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const BaseSpan = styled.span`
   width: 23%;
@@ -29,10 +30,10 @@ export const Value = styled.span`
   margin: 0 10px;
 `;
 
-export const ArrowButton = styled.button`
+export const ArrowButton = styled.div`
   cursor: pointer;
 `;
-export const RemoveButton = styled.button`
+export const RemoveButton = styled.div`
   font-size: 16px;
   cursor: pointer;
 `;
